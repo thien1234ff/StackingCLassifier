@@ -17,7 +17,7 @@ import joblib
 sys.stdout.reconfigure(encoding='utf-8')
 
 # Load dataset
-df = pd.read_csv('Agriculture_dataset.csv', usecols=lambda col: "Unnamed" not in col)
+df = pd.read_csv("Agriculture.csv", usecols=lambda col: "Unnamed" not in col)
 Y = df["label"]
 X = df[["N", "P", "K", "ph", "temperature", "humidity", "rainfall"]]
 
