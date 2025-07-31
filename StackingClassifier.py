@@ -89,5 +89,11 @@ print(f"Average Accuracy: {np.mean(accuracy_scores):.4f}")
 print(f"Average Precision: {np.mean(precision_scores):.4f}")
 print(f"Average Recall: {np.mean(recall_scores):.4f}")
 
-# Lưu mô hình
+# Sau khi đánh giá xong bằng KFold, huấn luyện lại trên toàn bộ dữ liệu
+sc_X_full = StandardScaler()
+X_scaled_full = sc_X_full.fit_transform(X)
+stacking_model.fit(X_scaled_full, Y)
+
+# Lưu cả model và scaler
 joblib.dump(stacking_model, "stacking_model.pkl")
+joblib.dump(sc_X_full, "scaler.pkl")
